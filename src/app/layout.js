@@ -1,5 +1,9 @@
-import { Inter } from 'next/font/google'
+
 import './globals.css'
+import { Inter } from 'next/font/google'
+import Provider from './provder'
+import Navbar from './(components)/Navbar/page'
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -10,8 +14,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <html lang="en" className='light' style={{colorScheme : 'light'}}>
+      <body className={inter.className}>
+        <Provider>
+          <main> 
+            {children}
+            </main>
+        </Provider>
+        </body>
+   </html>
+
   )
 }
